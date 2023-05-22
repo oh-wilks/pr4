@@ -32,9 +32,11 @@ const HomePage = () => {
               </button>
               <button
                 type="button"
-                className="btn btn-outline-secondary btn-lg px-4"
+                className="btn btn-primary btn-lg px-4"
               >
-                Default
+              <NavLink className="nav-link active" to="/booking">
+              🍽️ Book a table
+              </NavLink>
               </button>
             </div>
           </div>
