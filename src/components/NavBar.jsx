@@ -8,7 +8,9 @@ const NavBar = () => {
     >
       <div className="container">
         <a className="navbar-brand" href="#">
-          🌯 resto
+        <NavLink className="nav-link active" to="/">
+        🌯 resto
+        </NavLink>
         </a>
         <button
           className="navbar-toggler"
@@ -23,11 +25,6 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink className="nav-link active" to="/">
-                Home
-              </NavLink>
-            </li>
             <li className="nav-item">
               <NavLink className="nav-link active" to="/menu">
                 Menu

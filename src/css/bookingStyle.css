@@ -11,7 +11,7 @@
   @media only screen and (min-width: 601px) and (max-width: 900px) {
   
     #reservation-form {
-      width: 100%;
+      width: 70%;
       margin: auto;
     }
   
@@ -22,7 +22,7 @@
   @media only screen and (min-width: 901px) {
   
     #reservation-form {
-      width: 50%;
+      width: 70%;
       margin: auto;
     }
   

@@ -8,6 +8,22 @@ const BookingPage = () => {
   <h1>Table Reservation</h1>
   <form>
   <div className="row g-2">
+  <hr className="my-4" />
+  <div className="col-md-4">
+        <label htmlFor="party-size" className="form-label">Party Size</label>
+        <input className="form-control" type="number" id="party-size" name="party-size" min="1" max="8" required/>
+  </div>
+  <div className="col-md-4">
+        <label htmlFor="date" className="form-label">Date</label>
+        <input type="date" className="form-control" id="date" required />
+  </div>
+  <div className="col-md-4">
+        <label htmlFor="hour" className="form-label">Hour</label>
+        <input type="time" className="form-control" id="time" required />
+  </div>
+  </div>
+  <div className="row g-2">
+  <hr className="my-4" />
     <div className="col-md-6">
       <div>
         <label className="form-label" for="first-name" >First Name</label>
@@ -32,24 +48,10 @@ const BookingPage = () => {
     </div>
   </div>
   <div className="row g-2">
-  <div className="col-md-4">
-        <label htmlFor="party-size" className="form-label">Party Size</label>
-        <input className="form-control" type="number" id="party-size" name="party-size" min="1" max="8" required/>
-  </div>
-  <div className="col-md-4">
-        <label htmlFor="date" className="form-label">Date</label>
-        <input type="date" className="form-control" id="date" required />
-  </div>
-  <div className="col-md-4">
-        <label htmlFor="hour" className="form-label">Hour</label>
-        <input type="time" className="form-control" id="time" required />
-  </div>
-
-  </div>
-  <div className="row g-2">
-  <div className="col-md-6">
+  <hr className="my-4" />
+  <div className="col-md">
         <label className="form-label" for="special-request" >Special Request</label>
-        <input className="form-control" type="text" id="special-request" name="special-request" placeholder="special-request"/>
+        <input className="form-control" type="text" id="special-request" name="special-request" placeholder="Special-request"/>
   </div>
   </div>
   <hr className="my-4" />

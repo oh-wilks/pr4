@@ -27,7 +27,7 @@ const HomePage = () => {
                 className="btn btn-primary btn-lg px-4 me-md-2"
               >
               <NavLink className="nav-link active" to="/menu">
-              Menu
+              🍱 Menu
               </NavLink>
               </button>
               <button
