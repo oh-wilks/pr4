@@ -1,26 +1,24 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
-import {getFireStore} from 'firebase/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.DB_PASSWORD,
-  authDomain: "pr4backend.firebaseapp.com",
-  projectId: "pr4backend",
-  storageBucket: "pr4backend.appspot.com",
-  messagingSenderId: "566073560394",
-  appId: "1:566073560394:web:55f2bbb4684375dcf705b3",
-  measurementId: "G-80XVJ8YZ8R"
+  authDomain: "pr4ucamp.firebaseapp.com",
+  projectId: "pr4ucamp",
+  storageBucket: "pr4ucamp.appspot.com",
+  messagingSenderId: "306300243861",
+  appId: "1:306300243861:web:2dcc4ab1021c7ecbdd709c"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 //export 
-const db = getFireStore(app)
+const db = getFirestore(app)
 
 export {db}

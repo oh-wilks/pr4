@@ -1,6 +1,39 @@
+import { useEffect, useState } from 'react'
 import '../css/bookingStyle.css'
+import {collection, getDocs, addDoc, doc, deleteDoc, updateDoc} from 'firebase/firestore'
+import {db} from "../firebase/firebase"
 
 const BookingPage = () => {
+
+  const [users, setUser] = useState([])
+  const useCollectionRef = collection(db, 'Reserva')
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("");
+  const [partySize, setPartySize] = useState(0);
+  const [hour, setHour] = useState("");
+  const [date, setDate] = useState("");
+
+    const createUser = async() => {
+      await addDoc(useCollectionRef, {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        partySize: partySize,
+        hour: hour,
+        date: date});
+      getUser();
+    }
+
+    const getUser = async() => {
+      const data = await getDocs(useCollectionRef)
+      setUser(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }
+
+    useEffect(() => {
+      getUser
+    }, []);
+ 
   return (
    <> 
    
@@ -11,15 +44,18 @@ const BookingPage = () => {
   <hr className="my-4" />
   <div className="col-md-4">
         <label htmlFor="party-size" className="form-label">Party Size</label>
-        <input className="form-control" type="number" id="party-size" name="party-size" min="1" max="8" required/>
+        <input className="form-control" type="number" id="party-size" name="party-size" min="1" max="8" required
+        onChange={(e) => setPartySize(e.target.value)}/>
   </div>
   <div className="col-md-4">
         <label htmlFor="date" className="form-label">Date</label>
-        <input type="date" className="form-control" id="date" required />
+        <input type="date" className="form-control" id="date" required
+        onChange={(e) => setDate(e.target.value)} />
   </div>
   <div className="col-md-4">
         <label htmlFor="hour" className="form-label">Hour</label>
-        <input type="time" className="form-control" id="time" required />
+        <input type="time" className="form-control" id="time" required
+        onChange={(e) => setHour(e.target.value)} />
   </div>
   </div>
   <div className="row g-2">
@@ -27,20 +63,23 @@ const BookingPage = () => {
     <div className="col-md-6">
       <div>
         <label className="form-label" for="first-name" >First Name</label>
-        <input className="form-control" type="text" id="first-name" name="first-name" placeholder="First Name" required />
+        <input className="form-control" type="text" id="first-name" name="first-name" placeholder="First Name" required 
+        onChange={(e) => setFirstName(e.target.value)}/>
       </div>
     </div>
     <div className="col-md-6">
       <div>
         <label className="form-label" for="last-name" >Last Name</label>
-        <input className="form-control" type="text" id="last-name" name="last-name" placeholder="Last Name" required />
+        <input className="form-control" type="text" id="last-name" name="last-name" placeholder="Last Name" required
+        onChange={(e) => setLastName(e.target.value)} />
       </div>
     </div>
   </div>
   <div className="row g-2">
     <div className="col-md-6">
         <label className="form-label" for="email" >Email Address</label>
-        <input className="form-control" type="email" id="email" name="email" placeholder="email@address.com" required/>
+        <input className="form-control" type="email" id="email" name="email" placeholder="email@address.com" required
+        onChange={(e) => setEmail(e.target.value)}/>
     </div>
     <div className="col-md-6">
         <label className="form-label" for="phone" >Phone Number</label>
@@ -65,7 +104,7 @@ const BookingPage = () => {
     </div>
     <hr className="my-4" />
   <div className="col-md-6">
-    <button type="submit" class="btn btn-outline-success btn-lg">🗓️ Book Now</button>
+    <button type="submit" class="btn btn-outline-success btn-lg" onClick={createUser}>🗓️ Book Now</button>
   </div>
   </form>
 
