@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "rimraf dist && vite build",
     "predeploy": "npm run build",
-    "deploy": "vite build && gh-pages -d dist",
+    "deploy": "vite build && gh-pages -b gh-pages -d dist",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
