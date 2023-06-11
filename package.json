@@ -5,13 +5,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
     "dev": "vite",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
-    
   },
   "dependencies": {
     "bootstrap": "^5.3.0-alpha3",
